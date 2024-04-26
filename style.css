@@ -9,7 +9,6 @@ body {
   font-size: 16px;
   width: 100%;
   height: 100vh;
-  /* background-color: #7a7676; */
   background-color: #222020;
   display: flex;
   justify-content: center;
@@ -41,11 +40,6 @@ body {
   align-items: center;
 }
 
-.laps {
-  height: 250px;
-  overflow: auto;
-}
-
 .text {
   color: black;
   font-size: 23px;
@@ -67,20 +61,10 @@ body {
   justify-content: space-between;
 }
 
-/* .button {
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 50%;
-  background-color: #222020;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-} */
-
 .btn-play,
 .btn-lap,
-.btn-reset {
+.btn-reset,
+.lap-clear-button {
   font-size: 15px;
   cursor: pointer;
   padding: 0.7em 3em;
@@ -211,4 +195,92 @@ body {
 
 .btn-lap:hover:before {
   transform: translateX(15em);
+}
+
+.laps {
+  list-style: none;
+  color: #f5f5f5;
+  text-align: center;
+  height: 250px;
+  overflow: auto;
+  position: relative;
+  margin-top: 30px;
+}
+.laps::-webkit-scrollbar {
+  display: none;
+}
+
+.lap-item {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.number {
+  color: #cccccc;
+}
+
+.time-stamp {
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.lap-clear-button {
+  display: block;
+  bottom: 5vh;
+  position: fixed;
+  left: 38vw;
+  z-index: 1000;
+  background-color: rgba(138, 43, 226, 0.5);
+  --purple: #8a2be2;
+  font-weight: 600;
+  background: linear-gradient(
+    to right,
+    rgba(138, 43, 226, 0.1) 1%,
+    transparent 40%,
+    transparent 60%,
+    rgba(138, 43, 226, 0.1) 100%
+  );
+  color: var(--purple);
+}
+.lap-clear-button:hover {
+  color: #b980ff;
+  box-shadow: inset 0 0 10px rgba(138, 43, 226, 0.6),
+    0 0 9px 3px rgba(138, 43, 226, 0.2);
+}
+
+.lap-clear-button:before {
+  content: "";
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform 0.4s ease-in-out;
+  background: linear-gradient(
+    to right,
+    transparent 1%,
+    rgba(138, 43, 226, 0.1) 40%,
+    rgba(138, 43, 226, 0.1) 60%,
+    transparent 100%
+  );
+}
+
+.lap-clear-button:hover:before {
+  transform: translateX(15em);
+}
+
+@media screen and (min-width: 768px) {
+  .lap-clear-button {
+    left: 44vw;
+  }
+}
+
+.display-none {
+  display: none;
 }
