@@ -65,6 +65,9 @@ const reset = () => {
   second.innerHTML = "&nbsp;0 :";
   centiSecond.innerHTML = "&nbsp;0";
   minute.innerHTML = "0 :";
+  secCounter = 0;
+  minCounter = 0;
+  centiCounter = 0;
 };
 
 const lap = () => {
